@@ -17,13 +17,13 @@ values (1, 'Jan', 'Kowalski', '+48 111 222 333', 'jan.kowalski@gmail.com', 'assa
 (4, 'Jurek', 'Nowak', '+48 123 567 890', 'jureekl.nowak@gmail.com', 'zxc', 'Surgeon', 7),
 (5, 'Marek', 'Nowak', '+48 951 627 384', 'makek.nowak@gmail.com', 'fas', 'Surgeon', 1);
 
-insert into patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id)
-values (1, 'blazej', 'dsax', '+48 321 132 123', 'bvlaezj@gmail.com', '1454', '1999-01-01', 4),
-       (2, 'jurek', 'xcz', '+48 643 234 523', 'cxvzsac@gmail.com', '52', '1999-01-02', 8),
-       (3, 'esacz', 'mbank', '+48 5646 32 122', 'asdd@gmail.com', '123', '1999-01-03', 6),
-       (4, 'polak', 'niemiec', '+48 4132 43 123', 'asddas@gmail.com', '124', '1999-01-04', 11),
-       (5, 'krzysztog', 'elo', '+48 56 3245 234', 'xzccxz@gmail.com', '5132', '1999-01-05', 9),
-       (6, 'blazej', 'sieradzki', '+48 2533 23 552', 'sadds@gmail.com', '542', '1999-01-06', 10);
+insert into patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, regular_customer)
+values (1, 'blazej', 'dsax', '+48 321 132 123', 'bvlaezj@gmail.com', '1454', '1999-01-01', 4, TRUE),
+       (2, 'jurek', 'xcz', '+48 643 234 523', 'cxvzsac@gmail.com', '52', '1999-01-02', 8, FALSE),
+       (3, 'esacz', 'mbank', '+48 5646 32 122', 'asdd@gmail.com', '123', '1999-01-03', 6, FALSE),
+       (4, 'polak', 'niemiec', '+48 4132 43 123', 'asddas@gmail.com', '124', '1999-01-04', 11, FALSE),
+       (5, 'krzysztog', 'elo', '+48 56 3245 234', 'xzccxz@gmail.com', '5132', '1999-01-05', 9, TRUE),
+       (6, 'blazej', 'sieradzki', '+48 2533 23 552', 'sadds@gmail.com', '542', '1999-01-06', 10, FALSE);
 
 insert into visit (id, description, time, doctor_id, patient_id)
 values (1, 'asd', '2024-08-01T10:00:00.000', 1, 1),

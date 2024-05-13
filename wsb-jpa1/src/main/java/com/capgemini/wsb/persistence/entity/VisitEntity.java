@@ -57,10 +57,21 @@ public class VisitEntity {
 		this.time = time;
 	}
 
+	public PatientEntity getPatientEntity() {
+		return patientEntity;
+	}
 
+	public void setPatientEntity(PatientEntity patientEntity) {
+		this.patientEntity = patientEntity;
+	}
 
+	public DoctorEntity getDoctorEntity() {
+		return doctorEntity;
+	}
 
-
+	public void setDoctorEntity(DoctorEntity doctorEntity) {
+		this.doctorEntity = doctorEntity;
+	}
 
 
 }

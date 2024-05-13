@@ -25,6 +25,8 @@ public class PatientEntity {
 
 	private String email;
 
+	private Boolean regularCustomer;
+
 	@Column(nullable = false)
 	private String patientNumber;
 
@@ -80,6 +82,15 @@ public class PatientEntity {
 		this.email = email;
 	}
 
+	public Boolean getRegularCustomer() {
+		return regularCustomer;
+	}
+
+	public void setRegularCustomer(Boolean regularCustomer) {
+		this.regularCustomer = regularCustomer;
+	}
+
+
 	public String getPatientNumber() {
 		return patientNumber;
 	}
@@ -95,5 +106,14 @@ public class PatientEntity {
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
+	public List<VisitEntity> getVisitEntityList() {
+		return visitEntityList;
+	}
+
+	public void setVisitEntityList(List<VisitEntity> visitEntityList) {
+		this.visitEntityList = visitEntityList;
+	}
+
 
 }
