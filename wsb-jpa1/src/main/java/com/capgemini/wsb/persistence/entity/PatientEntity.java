@@ -38,7 +38,7 @@ public class PatientEntity {
 	@JoinColumn(name="address_id")
 	private AddressEntity addressEntity;
 
-	@OneToMany(mappedBy = "patientEntity", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "patientEntity", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<VisitEntity> visitEntityList;
 
 

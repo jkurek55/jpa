@@ -22,9 +22,17 @@ public class PatientServiceImpl implements PatientService
     }
 
     @Override
-    public PatientTO findById(Long id) {
-        final PatientEntity entity = patientDao.findOne(id);
-        return PatientMapper.mapToTO(entity);
+    public PatientTO findById(long id) {
+        final PatientEntity patientEntity = patientDao.findOne(id);
+        PatientTO patientTo = PatientMapper.mapToTO(patientEntity);
+        return patientTo;
     }
+
+    @Override
+    public long deleteById(long id) {
+        patientDao.delete(id);
+        return id;
+    }
+
 
 }
