@@ -1,6 +1,9 @@
 package com.capgemini.wsb.service;
 
 import com.capgemini.wsb.dto.PatientTO;
+import com.capgemini.wsb.persistence.entity.VisitEntity;
+
+import java.util.List;
 
 public interface PatientService
 {
@@ -8,5 +11,5 @@ public interface PatientService
 
     long deleteById(long id);
 
-
+    List<VisitEntity> getPatientVisitList(long id);
 }

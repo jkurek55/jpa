@@ -2,12 +2,14 @@ package com.capgemini.wsb.persistance.service;
 
 import com.capgemini.wsb.dto.PatientTO;
 
-import com.capgemini.wsb.persistence.entity.DoctorEntity;
+import com.capgemini.wsb.service.DoctorService;
 import com.capgemini.wsb.service.PatientService;
+import com.capgemini.wsb.service.VisitService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,22 +26,28 @@ public class PatientServiceTest {
     @Autowired
     private PatientService patientService;
     @Autowired
-    private DoctorEntity doctorEntity;
+    private DoctorService doctorService;
+    @Autowired
+    private VisitService visitService;
 
-    //Lab2 test 1 i Lab3 test 2
     @Test
-    public void ShouldReturnPatientVisitList(){
+    public void ShouldReturnPatientVisitList()
+    {
+        //sprawdzenie czy liczba wizyt się zgadza z pacjentem o danym ID
+        assertEquals(2,patientService.getPatientVisitList(2).size());
 
-        PatientTO patientTO = patientService.findById(2);
-        //zwrocenie wszystkich wizyt po ID pacienta
-        assertEquals(patientTO.getVisitEntityList().size(),2);
     }
 
+    @Test
+    public void shouldDeletePatientAndVisitsNotDoctors(){
+        //given: data.sql
+        //when
+        patientService.deleteById(1L);
+        //then
+        assertNull(patientService.findById(1L));
+       assertNull(visitService.findById(1L));
+       assertNotNull(doctorService.findById(1L));
 
-
-    @Test void shouldDeletePatient(){
-        patientService.deleteById(1);
-        assertNull(patientService.findById(1));
     }
 
 

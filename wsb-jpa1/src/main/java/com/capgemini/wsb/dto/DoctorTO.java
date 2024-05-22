@@ -5,8 +5,9 @@ import com.capgemini.wsb.persistence.entity.VisitEntity;
 import com.capgemini.wsb.persistence.enums.Specialization;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-public class DoctorTO {
+public class DoctorTO implements Serializable {
 
     private Long id;
 

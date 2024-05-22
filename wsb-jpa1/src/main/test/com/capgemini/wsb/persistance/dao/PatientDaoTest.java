@@ -14,18 +14,52 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
-
 @SpringBootTest
 public class PatientDaoTest {
 
     @Autowired
     private PatientDao patientDao;
 
+    @Transactional
+    @Test
+    public void testShouldFindPatientByName() {
+        assertEquals(2, patientDao.findPatientByLastName("sieradzki").size());
 
+    }
+
+
+    @Test
+    public void testShouldFindPatientsThatHaveMoreVisitsThan1()
+    {
+        int visitQuantity = 1;
+        //wielkosc listy ktora zbiera pacjentow ma sie rownac 4 bo tyle jest pacjentow z wieksza liczba wizyt niz 1
+
+        assertEquals(4, patientDao.findPatientsWithMoreVisitsThan(visitQuantity).size());
+
+
+    }
+
+
+    @Test
+    public void testShouldFindPatientsThatHaveGmail()
+    {
+        assertEquals(3, patientDao.findPatientsWithGmail().size());
+    }
+
+}
+
+
+
+
+
+
+
+/*
     @Transactional
     @Test
     public void testShouldFindPatientByName() {
@@ -85,5 +119,4 @@ public class PatientDaoTest {
     }
 
 
-
-}
+*/
