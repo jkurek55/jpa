@@ -73,5 +73,7 @@ public class VisitEntity {
 		this.doctorEntity = doctorEntity;
 	}
 
+	public List<MedicalTreatmentEntity> getMedicalTreatmentEntityList() {return medicalTreatmentEntityList;}
 
+	public void setMedicalTreatmentEntityList(List<MedicalTreatmentEntity> medicalTreatmentEntityList) {this.medicalTreatmentEntityList = medicalTreatmentEntityList;}
 }
